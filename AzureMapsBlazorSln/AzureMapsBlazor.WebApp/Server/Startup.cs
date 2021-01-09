@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PTI.Microservices.Library.Interceptors;
+using PTI.Microservices.Library.Services;
 using System.Linq;
 
 namespace AzureMapsBlazor.WebApp.Server
@@ -26,6 +28,16 @@ namespace AzureMapsBlazor.WebApp.Server
             AzureMapsConfiguration azureMapsConfiguration = this.Configuration.GetSection("AzureMapsConfiguration")
                 .Get<AzureMapsConfiguration>();
             services.AddSingleton(azureMapsConfiguration);
+            var azuremapsServiceConfig =
+                new PTI.Microservices.Library.Configuration.AzureMapsConfiguration()
+                {
+                    Key = azureMapsConfiguration.SubscriptionKey
+                };
+            PTI.Microservices.Library.Configuration.GlobalPackageConfiguration.RapidApiKey = "a3893edcbfmsh2efa1861dcc7a10p159864jsnf17e667d1bf7";
+            services.AddSingleton(azuremapsServiceConfig);
+            services.AddTransient<CustomHttpClientHandler>();
+            services.AddTransient<CustomHttpClient>();
+            services.AddTransient<AzureMapsService>();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

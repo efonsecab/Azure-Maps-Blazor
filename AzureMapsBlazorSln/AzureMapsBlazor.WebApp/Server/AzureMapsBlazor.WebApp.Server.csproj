@@ -2,10 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>fe7c0f53-ad1f-43b8-8c44-7a339cc63e29</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="5.0.1" />
+    <PackageReference Include="PTI.Microservices.Library" Version="1.0.0.6" />
   </ItemGroup>
 
   <ItemGroup>

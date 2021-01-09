@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using AzureMapsBlazor.WebApp.Shared;
+using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
@@ -21,31 +22,13 @@ namespace AzureMapsBlazor.WebApp.Client.Components.AzureMaps
         {
         }
 
-        private GeoCoordinates RouteStart { get; set; } = new GeoCoordinates()
-        {
-            Latitude = 9.94552,
-            Longitude = -84.11618
-        };
+        [Parameter]
+        public GeoCoordinates RouteStart { get; set; } = null;
 
-        private GeoCoordinates RouteEnd { get; set; } = new GeoCoordinates()
-        {
-            Latitude = 9.94458,
-            Longitude = -84.11675
-        };
-
-        private GeoCoordinates[] PointsInRoute { get; set; } = new GeoCoordinates[]
-        {
-            new GeoCoordinates()
-            {
-                Latitude=9.94501,
-                Longitude=-84.11649
-            },
-            new GeoCoordinates()
-            {
-                Latitude=9.94478,
-                Longitude=-84.11663
-            }
-        };
+        [Parameter]
+        public GeoCoordinates RouteEnd { get; set; } = null;
+        [Parameter]
+        public GeoCoordinates[] PointsInRoute { get; set; } = null;
         public async Task InitializeMap()
         {
             AzureMapsControlConfiguration options = new AzureMapsControlConfiguration()

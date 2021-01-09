@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AzureMapsBlazor.WebApp.Shared;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -6,11 +7,6 @@ using System.Threading.Tasks;
 
 namespace AzureMapsBlazor.WebApp.Client.Components.AzureMaps
 {
-    public class GeoCoordinates
-    {
-        public double Latitude { get; set; }
-        public double Longitude { get; set; }
-    }
     public enum MapsLanguage
     {
         [Display(Name = "en-us", ShortName ="en-US")]
