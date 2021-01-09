@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureMapsBlazor.WebApp.Server", "AzureMapsBlazor.WebApp\Server\AzureMapsBlazor.WebApp.Server.csproj", "{30167CE7-E281-46B9-BFCE-8B512C016EAD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureMapsBlazor.WebApp.Client", "AzureMapsBlazor.WebApp\Client\AzureMapsBlazor.WebApp.Client.csproj", "{531860E1-4A65-4EF2-90ED-E1BA5079E308}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureMapsBlazor.WebApp.Shared", "AzureMapsBlazor.WebApp\Shared\AzureMapsBlazor.WebApp.Shared.csproj", "{CA5C15AC-2491-473C-856B-7319CAE01319}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30167CE7-E281-46B9-BFCE-8B512C016EAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30167CE7-E281-46B9-BFCE-8B512C016EAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30167CE7-E281-46B9-BFCE-8B512C016EAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30167CE7-E281-46B9-BFCE-8B512C016EAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{531860E1-4A65-4EF2-90ED-E1BA5079E308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{531860E1-4A65-4EF2-90ED-E1BA5079E308}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{531860E1-4A65-4EF2-90ED-E1BA5079E308}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{531860E1-4A65-4EF2-90ED-E1BA5079E308}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA5C15AC-2491-473C-856B-7319CAE01319}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA5C15AC-2491-473C-856B-7319CAE01319}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA5C15AC-2491-473C-856B-7319CAE01319}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA5C15AC-2491-473C-856B-7319CAE01319}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0630DB6B-1861-4D01-B1CB-63507E2DA2AA}
+	EndGlobalSection
+EndGlobal

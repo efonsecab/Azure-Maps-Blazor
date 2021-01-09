@@ -1,0 +1,7 @@
+﻿<h3>AzureMapsControl</h3>
+<div>
+    <div id="@MapsControlId" style="height:500px; width:500px;"></div>
+</div>
+
+<button @onclick="@(async () => await InitializeMap() )">Initialize Map</button>
+<button @onclick="@(async () => await RenderLines() )">Render Lines</button>

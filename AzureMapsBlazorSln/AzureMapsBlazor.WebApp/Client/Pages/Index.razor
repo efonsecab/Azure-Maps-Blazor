@@ -1,0 +1,7 @@
+﻿@page "/"
+
+@if (this.CanRenderMap)
+{
+    <AzureMapsBlazor.WebApp.Client.Components.AzureMaps.AzureMapsControl MapsControlId="divMap"
+                                                                         SubscriptionKey="@this.SubscriptionKey"></AzureMapsBlazor.WebApp.Client.Components.AzureMaps.AzureMapsControl>
+}
