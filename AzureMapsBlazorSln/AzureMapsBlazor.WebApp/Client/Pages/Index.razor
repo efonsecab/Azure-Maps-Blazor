@@ -1,4 +1,22 @@
 ﻿@page "/"
+<div>
+    <h3>From</h3>
+    <span>Latitude</span>
+    <input type="text" @bind-value="FromLatitude" />
+    <span>Longitude</span>
+    <input type="text" @bind-value="FromLongitude" />
+</div>
+<div>
+    <h3>To</h3>
+    <span>Latitude</span>
+    <input type="text" @bind-value="ToLatitude" />
+    <span>Longitude</span>
+    <input type="text" @bind-value="ToLongitude" />
+</div>
+<div>
+    <input type="button" value="Search" @onclick="Search" />
+</div>
+
 
 @if (this.CanRenderMap)
 {

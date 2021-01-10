@@ -24,8 +24,12 @@ namespace AzureMapsBlazor.WebApp.Client.Pages
         public GeoCoordinates RouteEnd { get; set; } = null;
         [Parameter]
         public GeoCoordinates[] PointsInRoute { get; set; } = null;
+        public string FromLatitude { get; set; }
+        public string FromLongitude { get; set; }
+        public string ToLatitude { get; set; }
+        public string ToLongitude { get; set; }
 
-        protected override async Task OnInitializedAsync()
+        public async Task Search()
         {
             var response = await Http.GetAsync("api/AzureMaps/GetSubscriptionKey", HttpCompletionOption.ResponseContentRead);
             if (response.IsSuccessStatusCode)
@@ -36,13 +40,13 @@ namespace AzureMapsBlazor.WebApp.Client.Pages
                 {
                     StartPoint = new GeoCoordinates()
                     {
-                        Latitude = 9.9356284,
-                        Longitude = -84.1483647
+                        Latitude = double.Parse(FromLatitude),
+                        Longitude = double.Parse(FromLongitude)
                     },
                     EndPoint = new GeoCoordinates()
                     {
-                        Latitude = 9.9983731,
-                        Longitude = -84.1306463
+                        Latitude = double.Parse(ToLatitude),
+                        Longitude = double.Parse(ToLongitude)
                     }
                 };
                 response = await Http.PostAsJsonAsync<GetFastestRouteModel>("api/AzureMaps/GetFastestRoute", model);
