@@ -1,4 +1,5 @@
-﻿using AzureMapsBlazor.WebApp.Server.Configuration;
+﻿using AzureMapsBlazor.Components;
+using AzureMapsBlazor.WebApp.Server.Configuration;
 using AzureMapsBlazor.WebApp.Shared;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

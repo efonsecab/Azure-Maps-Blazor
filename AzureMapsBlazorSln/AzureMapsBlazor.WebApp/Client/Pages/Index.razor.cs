@@ -1,4 +1,5 @@
-﻿using AzureMapsBlazor.WebApp.Shared;
+﻿using AzureMapsBlazor.Components;
+using AzureMapsBlazor.WebApp.Shared;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
@@ -24,10 +25,10 @@ namespace AzureMapsBlazor.WebApp.Client.Pages
         public GeoCoordinates RouteEnd { get; set; } = null;
         [Parameter]
         public GeoCoordinates[] PointsInRoute { get; set; } = null;
-        public string FromLatitude { get; set; }
-        public string FromLongitude { get; set; }
-        public string ToLatitude { get; set; }
-        public string ToLongitude { get; set; }
+        public string FromLatitude { get; set; } = "9.9983731";
+        public string FromLongitude { get; set; } = "-84.1306463";
+        public string ToLatitude { get; set; } = "9.635158";
+        public string ToLongitude { get; set; } = "-84.5570394";
 
         public async Task Search()
         {
@@ -38,7 +39,7 @@ namespace AzureMapsBlazor.WebApp.Client.Pages
 
                 GetFastestRouteModel model = new GetFastestRouteModel()
                 {
-                    StartPoint = new GeoCoordinates()
+                    StartPoint = new Components.GeoCoordinates()
                     {
                         Latitude = double.Parse(FromLatitude),
                         Longitude = double.Parse(FromLongitude)

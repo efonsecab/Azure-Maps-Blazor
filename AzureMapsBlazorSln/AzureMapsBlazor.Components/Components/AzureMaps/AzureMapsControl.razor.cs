@@ -1,12 +1,12 @@
-﻿using AzureMapsBlazor.WebApp.Shared;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+using Microsoft.JSInterop.Implementation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AzureMapsBlazor.WebApp.Client.Components.AzureMaps
+namespace AzureMapsBlazor.Components.Components.AzureMaps
 {
     public partial class AzureMapsControl
     {
@@ -18,10 +18,6 @@ namespace AzureMapsBlazor.WebApp.Client.Components.AzureMaps
         public string SubscriptionKey { get; set; }
 
 
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-        }
-
         [Parameter]
         public GeoCoordinates RouteStart { get; set; } = null;
 
@@ -29,6 +25,9 @@ namespace AzureMapsBlazor.WebApp.Client.Components.AzureMaps
         public GeoCoordinates RouteEnd { get; set; } = null;
         [Parameter]
         public GeoCoordinates[] PointsInRoute { get; set; } = null;
+        [Inject]
+        public AzureMapsControlModule module { get; set; }
+
         public async Task InitializeMap()
         {
             AzureMapsControlConfiguration options = new AzureMapsControlConfiguration()
@@ -42,18 +41,12 @@ namespace AzureMapsBlazor.WebApp.Client.Components.AzureMaps
                     SubscriptionKey = this.SubscriptionKey
                 }
             };
-            await JavascriptRuntime.InvokeVoidAsync("InitMap", MapsControlId, options);
-            this.StateHasChanged();
+            await module.InitializeMap(mapControlId: MapsControlId, mapOptions: options); ;
         }
 
         public async Task RenderLines()
         {
-            await JavascriptRuntime.InvokeVoidAsync("RenderLine",
-                RouteStart,
-                RouteEnd,
-                PointsInRoute
-                );
-            this.StateHasChanged();
+            await module.RenderLines(routeStart:this.RouteStart, routeEnd: this.RouteEnd, pointsInRoute: this.PointsInRoute);
         }
     }
 }
