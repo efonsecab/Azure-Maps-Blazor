@@ -40,5 +40,12 @@ namespace AzureMapsBlazor.Components
                 pointsInRoute
                 );
         }
+
+        internal async Task SearchRoute(string mapControlId, AzureMapsControlConfiguration mapOptions,
+            GeoCoordinates startingPoint, GeoCoordinates finalPoint, GeoCoordinates[] pointsInRoute)
+        {
+            var module = await this.moduleTask.Value;
+            await module.InvokeVoidAsync("SearchRoute", mapControlId, mapOptions, startingPoint, finalPoint, pointsInRoute);
+        }
     }
 }

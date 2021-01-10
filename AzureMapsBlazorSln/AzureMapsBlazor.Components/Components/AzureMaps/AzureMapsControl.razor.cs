@@ -28,6 +28,26 @@ namespace AzureMapsBlazor.Components.Components.AzureMaps
         [Inject]
         public AzureMapsControlModule module { get; set; }
 
+        protected override async Task OnParametersSetAsync()
+        {
+            await this.module.SearchRoute(mapControlId: this.MapsControlId,
+                mapOptions: new AzureMapsControlConfiguration()
+                {
+                    Center = RouteStart,
+                    Language = "en-US",
+                    Zoom = 12,
+                    AuthOptions = new AuthenticationOptions()
+                    {
+                        AuthType = "subscriptionKey",
+                        SubscriptionKey = this.SubscriptionKey
+                    }
+                },
+                startingPoint: this.RouteStart,
+                finalPoint: this.RouteEnd,
+                pointsInRoute: this.PointsInRoute
+                );
+        }
+
         public async Task InitializeMap()
         {
             AzureMapsControlConfiguration options = new AzureMapsControlConfiguration()
@@ -46,7 +66,7 @@ namespace AzureMapsBlazor.Components.Components.AzureMaps
 
         public async Task RenderLines()
         {
-            await module.RenderLines(routeStart:this.RouteStart, routeEnd: this.RouteEnd, pointsInRoute: this.PointsInRoute);
+            await module.RenderLines(routeStart: this.RouteStart, routeEnd: this.RouteEnd, pointsInRoute: this.PointsInRoute);
         }
     }
 }
